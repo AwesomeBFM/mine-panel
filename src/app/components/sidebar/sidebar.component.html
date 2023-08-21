@@ -1,0 +1,53 @@
+<div class="h-screen bg-white flex flex-col">
+  <div class="p-4 flex flex-col space-y-5 flex-grow">
+    <div class="flex items-center">
+      <i class="bx bxl-trello text-4xl"></i>
+      <span class="text-2xl font-semibold ml-2">Mine Panel</span>
+    </div>
+    <a
+      routerLink="/dashboard"
+      routerLinkActive="bg-blue-500 text-white"
+      class="text-xl hover:bg-gray-100 hover:text-black rounded-lg px-2 py-1 flex items-center transition-all">
+      <i class="bx bx-home mr-4"></i> Home
+    </a>
+    <a
+      routerLink="/orders"
+      routerLinkActive="bg-blue-500 text-white"
+      class="text-xl hover:bg-gray-100 hover:text-black rounded-lg px-2 py-1 flex items-center transition-all">
+      <i class="bx bx-receipt mr-4"></i> Orders
+    </a>
+    <a
+      routerLink="/reports"
+      routerLinkActive="bg-blue-500 text-white"
+      class="text-xl hover:bg-gray-100 hover:text-black rounded-lg px-2 py-1 flex items-center transition-all">
+      <i class='bx bx-alarm-exclamation mr-4'></i> Reports
+    </a>
+    <a
+      routerLink="/chats"
+      routerLinkActive="bg-blue-500 text-white"
+      class="text-xl hover:bg-gray-100 hover:text-black rounded-lg px-2 py-1 flex items-center transition-all">
+      <i class="bx bx-chat mr-4"></i> Chats
+    </a>
+    <a
+      routerLink="/servers"
+      routerLinkActive="bg-blue-500 text-white"
+      class="text-xl hover:bg-gray-100 hover:text-black rounded-lg px-2 py-1 flex items-center transition-all">
+      <i class="bx bx-server mr-4"></i> Servers
+    </a>
+    <a
+      routerLink="/staff"
+      routerLinkActive="bg-blue-500 text-white"
+      class="text-xl hover:bg-gray-100 hover:text-black rounded-lg px-2 py-1 flex items-center transition-all">
+      <i class="bx bx-user mr-4"></i> Staff
+    </a>
+  </div>
+
+  <div class="bg-gray-200 p-4 flex items-center justify-between">
+    <img src="/assets/pfp.jpg" alt="Profile Picture" class="h-12 w-12 mr-4 rounded-md">
+    <div class="flex flex-col">
+      <span class="text-lg font-semibold">Joe Biden</span>
+      <span class="text-base">Super Admin</span>
+    </div>
+    <a href="#" class="text-lg ml-auto hover:bg-gray-300 rounded-full"><i class="bx bx-log-out text-3xl"></i></a>
+  </div>
+</div>
