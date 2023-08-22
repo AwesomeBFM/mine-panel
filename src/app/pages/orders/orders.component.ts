@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 interface Order {
+  id: string;
   username: string;
   pfpRoute: string;
   total: string;
@@ -13,6 +14,14 @@ interface Order {
   styleUrls: ['./orders.component.css']
 })
 export class OrdersComponent {
-  orders: Order[] = [];
+  orders: Order[] = [
+    {
+      id: '1',
+      username: 'bidenman',
+      pfpRoute: '/assets/pfp.jpg',
+      total: '$53.28',
+      items: '2'
+    }
+  ];
 
 }
