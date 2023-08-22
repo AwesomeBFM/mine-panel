@@ -9,6 +9,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import {NgOptimizedImage} from "@angular/common";
 import { OrdersComponent } from './pages/orders/orders.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { OrdersComponent } from './pages/orders/orders.component';
         BrowserModule,
         AppRoutingModule,
         FormsModule,
-        NgOptimizedImage
+        NgOptimizedImage,
+        HttpClientModule
     ],
   providers: [],
   bootstrap: [AppComponent]

@@ -63,7 +63,7 @@
     <div class="flex flex-row h-full mb-6">
       <div class="flex flex-col w-8/12 mr-6">
         <input id="search" class="ml-6 mb-6 rounded-lg p-4 w-full" placeholder="Search Orders..." type="text"/>
-        <div class="bg-white w-full rounded-lg ml-6 h-full">
+        <div class="bg-white w-full rounded-lg ml-6 h-full max-h-full" #card>
           <!-- Header -->
           <div class="flex flex-row text-center bg-slate-200 p-2 rounded-t-lg">
             <div class="flex flex-col w-2/12">
@@ -89,48 +89,64 @@
             </div>
           </div>
 
-          <div class="flex flex-row text-center p-2" *ngFor="let order of orders">
+          <div class="flex flex-row text-center p-2 max-h-12" *ngFor="let order of orders">
             <div class="flex flex-col w-2/12">
               <span>{{ order.id }}</span>
             </div>
             <div class="flex flex-col w-2/12">
               <span>{{ order.timestamp }}</span>
             </div>
-            <div class="flex flex-col w-2/12 ">
-              <div class="flex flex-row ">
-                <img src="/assets/pfp.jpg" alt="Profile Picture" class="h-7 w-7 rounded-lg mr-2">
-                <span>Joe Biden</span>
+            <div class="flex flex-col w-2/12 mx-auto">
+              <div class="flex flex-row text-center mx-auto">
+                <img src="{{ order.pfpRoute }}" alt="Profile Picture" class="h-7 w-7 rounded-lg mr-2">
+                <span>{{ order.username }}</span>
               </div>
             </div>
-            <div class="flex flex-col w-2/12">
+
+            <div class="flex flex-col w-2/12 mx-auto">
               <span *ngIf="order.status == Status.SUCCESS"
-                    class="bg-green-500 w-28 text-white pl-2 pr-2 pt-1 pb-1 rounded-lg">SUCCESS</span>
+                    class="bg-green-500 rounded-lg pt-1 pb-1 text-white w-28 text-center mx-auto">SUCCESS</span>
               <span *ngIf="order.status == Status.FAILED"
-                    class="bg-red-500 w-28 text-white pl-2 pr-2 pt-1 pb-1 rounded-lg">FAILED</span>
+                    class="bg-red-500 rounded-lg pt-1 pb-1 text-white w-28 text-center mx-auto">FAILED</span>
               <span *ngIf="order.status == Status.PENDING"
-                    class="bg-yellow-200 w-28 text-black pl-2 pr-2 pt-1 pb-1 rounded-lg">PENDING</span>
+                    class="bg-yellow-200 rounded-lg pt-1 pb-1 text-black w-28 text-center mx-auto">PENDING</span>
               <span *ngIf="order.status == Status.REFUNDED"
-                    class="bg-blue-500 w-28 text-white pl-2 pr-2 pt-1 pb-1 rounded-lg">REFUNDED</span>
+                    class="bg-blue-500 rounded-lg pt-1 pb-1 text-white w-28 text-center mx-auto">REFUNDED</span>
               <span *ngIf="order.status == Status.CHARGEBACK"
-                    class="bg-orange-500 w-28 text-white pl-2 pr-2 pt-1 pb-1 rounded-lg">CHARGEBACK</span>
+                    class="bg-orange-500 rounded-lg pt-1 pb-1 text-white w-28 text-center mx-auto">CHARGEBACK</span>
             </div>
             <div class="flex flex-col w-1/12">
               <span>{{ order.total }}</span>
             </div>
-            <div class="flex flex-col w-2/12">
+            <div class="flex flex-col w-2/12 mx-auto">
               <span *ngIf="order.method == Provider.APPLE"
-                    class="bg-green-500 w-28 text-white pl-2 pr-2 pt-1 pb-1 rounded-lg">Pay</span>
+                    class="bg-white border w-28 text-black pl-2 pr-2 pt-1 pb-1 rounded-lg text-center mx-auto">
+                <i class="bx bxl-apple"></i> Pay
+              </span>
               <span *ngIf="order.method == Provider.GOOGLE"
-                    class="bg-red-500 text-white pl-2 pr-2 pt-1 pb-1 rounded-lg">Pay</span>
+                    class="bg-white border w-28 text-black pl-2 pr-2 pt-1 pb-1 rounded-lg text-center mx-auto">
+                <i class="bx bxl-google"></i> Pay
+              </span>
               <span *ngIf="order.method == Provider.PAYPAL"
-                    class="bg-yellow-200 text-black pl-2 pr-2 pt-1 pb-1 rounded-lg">PayPal</span>
-              <span *ngIf="order.method == Provider.VISA" class="bg-blue-500 text-white pl-2 pr-2 pt-1 pb-1 rounded-lg">VISA</span>
+                    class="bg-[#003087] w-28 text-white pl-2 pr-2 pt-1 pb-1 rounded-lg text-center mx-auto">
+                <i class="bx bxl-paypal"></i> PayPal
+              </span>
+              <span *ngIf="order.method == Provider.VISA"
+                    class="bg-[#1434cb] w-28 text-black pl-2 pr-2 max-h-8 pb-1 rounded-lg text-center mx-auto flex flex-col justify-center">
+                <i class="bx bxl-visa text-white text-6xl"></i>
+              </span>
               <span *ngIf="order.method == Provider.MASTERCARD"
-                    class="bg-orange-500 text-white pl-2 pr-2 pt-1 pb-1 rounded-lg">MasterCard</span>
+                    class="bg-[#141413] w-28 text-white pl-2 pr-2 max-h-8 pb-1 rounded-lg text-center mx-auto flex flex-col justify-center">
+                <i class="bx bxl-mastercard text-4xl"></i>
+              </span>
               <span *ngIf="order.method == Provider.AMEX"
-                    class="bg-orange-500 text-white pl-2 pr-2 pt-1 pb-1 rounded-lg">AmEx</span>
+                    class="bg-[#0a7ec2] w-28 text-white pl-2 pr-2 pt-1 pb-1 rounded-lg text-center mx-auto">
+                AmEx
+              </span>
               <span *ngIf="order.method == Provider.DISCOVER"
-                    class="bg-orange-500 text-white pl-2 pr-2 pt-1 pb-1 rounded-lg">Discover</span>
+                    class="bg-white border w-28 text-black pl-2 pr-2 pt-1 pb-1 rounded-lg text-center mx-auto">
+                Discover
+              </span>
             </div>
             <div class="flex flex-col w-1/12">
               <span>{{ order.items }}</span>
